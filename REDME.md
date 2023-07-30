@@ -1,6 +1,9 @@
 # 个人网盘系统
 
 项目介绍：使用Vue+SSM搭建的前后端分离的个人网盘系统
+目录netdisk_backend为java开发的后端服务
+目录netdisk_frontend则是vue开发的前端应用
+netdisk.sql是mysql数据文件
 
 vue的前端项目结构：
 

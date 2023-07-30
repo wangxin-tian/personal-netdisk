@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TbUserFileMapper">
+
+    <resultMap id="BaseResultMap" type="com.pojo.TbUserFile">
+            <id property="userfileId" column="userfile_id" jdbcType="BIGINT"/>
+            <result property="sysfileId" column="user_sysfile_id" jdbcType="BIGINT"/>
+            <result property="fileName" column="user_file_name" jdbcType="VARCHAR"/>
+            <result property="belongUser" column="belong_user" jdbcType="BIGINT"/>
+            <result property="fileType" column="file_type" jdbcType="CHAR"/>
+            <result property="fileSize" column="file_size" jdbcType="DECIMAL"/>
+            <result property="fileLocation" column="file_location" jdbcType="BIGINT"/>
+            <result property="uploadTime" column="upload_time" jdbcType="TIMESTAMP"/>
+            <result property="isDel" column="isDel" jdbcType="SMALLINT"/>
+    </resultMap>
+
+    <insert id="insertUserFile">
+        insert into tb_user_file values(null,#{sysfileId},#{fileName},
+                                        #{belongUser},#{fileType},#{fileSize},
+                                        #{fileLocation},#{uploadTime},#{isDel})
+    </insert>
+
+    <select id="findFiles" resultMap="BaseResultMap">
+        select * from tb_user_file where belong_user=#{belongUser} and file_location=#{fileLocation} and isDel=#{isDel}
+    </select>
+
+    <select id="findAllFiles" resultMap="BaseResultMap">
+        select * from tb_user_file where belong_user=#{belongUser} and isDel=#{isDel}
+    </select>
+
+    <select id="findAllPictures" resultMap="BaseResultMap">
+        select * from tb_user_file where belong_user = #{belongUser} and file_type = #{fileType}
+    </select>
+
+    <update id="updateFile" >
+        UPDATE tb_user_file SET isDel = #{isDel} WHERE userfile_id = #{userfileId}
+    </update>
+
+    <delete id="deleteFile">
+        delete from tb_user_file where userfile_id = #{userfileId}
+    </delete>
+
+    <select id="findByFileName" resultMap="BaseResultMap">
+        SELECT * FROM tb_user_file WHERE belong_user=#{belongUser} and user_file_name LIKE CONCAT('%', #{fileName}, '%') and isDel=#{isDel}
+    </select>
+
+    <select id="getFileCount" resultType="com.pojo.FileCount">
+        SELECT file_type as type,COUNT(*) as nums FROM tb_user_file WHERE belong_user=#{belongUser} and isDel=#{isDel} and file_type = #{fileType}
+    </select>
+</mapper>

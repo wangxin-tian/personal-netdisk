@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TbUserStatusMapper">
+
+    <resultMap id="BaseResultMap" type="com.pojo.TbUserStatus">
+            <id property="userName" column="user_name" jdbcType="CHAR"/>
+            <result property="userStatus" column="user_status" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <insert id="insertUserState">
+        insert into tb_user_status values(#{userName}, #{userStatus})
+    </insert>
+
+    <select id="selectALLuserStatus" resultMap="BaseResultMap">
+        select * from tb_user_status
+    </select>
+
+    <update id="updateUserStatus" >
+        UPDATE tb_user_status SET user_status = #{userStatus} WHERE user_name = #{userName}
+    </update>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--其它的都可以在spring的配置文件中配置，这个我不会，只能在这里配置
+    同理，如果不想在spring配置文件配置，也可以直接在mybatis核心配置文件配置
+    -->
+    <settings>
+        <!--自动将下划线映射为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+</configuration>

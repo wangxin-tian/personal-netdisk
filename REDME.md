@@ -1,0 +1,128 @@
+# 个人网盘系统
+
+项目介绍：使用Vue+SSM搭建的前后端分离的个人网盘系统
+
+vue的前端项目结构：
+
+```bash
+|--babel.config.js
+|--jsconfig.json
+|--package-lock.json
+|--package.json
++public/
+  |--cloud.ico
+  |--favicon.ico
+  |--index.html
+|--README.md
++src/
+  |--App.vue
+  +assets/
+    +css/
+      |--global.css
+    +img/
+      |--could0.jpg
+      |--could1.jpg
+      |--could2.jpg
+      |--logo.png
+  +components/
+    +allmain/
+      |--info_visualization.vue
+      |--main_all.vue
+      |--main_audio.vue
+      |--main_folder.vue
+      |--main_home.vue
+      |--main_picture.vue
+      |--main_search.vue
+      |--main_text.vue
+      |--main_video.vue
+    |--aside_.vue
+    |--footer_.vue
+    |--header_.vue
+    |--index_hello.vue
+    |--login_.vue
+    +other/
+      |--other_rubbish.vue
+      |--other_share.vue
+    |--register_.vue
+    +user/
+      |--main_.vue
+      |--personal_.vue
+      |--user_action.vue
+  |--main.js
+  +plugins/
+    |--element.js
+    |--router.js
+    |--store.js
+|--vue.config.js
+```
+
+ssm的后端项目结构：
+
+```bash
+|--netdisk_backend.iml
+|--pom.xml
++src/
+  +main/
+    +java/
+      +com/
+        +controller/
+          |--FileShareController.java
+          |--FolderController.java
+          |--SystemFileController.java
+          |--UserController.java
+          |--UserFileController.java
+          |--UserStatus.java
+        +dao/
+          |--TbFolderMapper.java
+          |--TbShareMapper.java
+          |--TbSystemFileMapper.java
+          |--TbUserFileMapper.java
+          |--TbUserStatusMapper.java
+          |--UserMapper.java
+        +pojo/
+          |--FileCount.java
+          |--NumsByType.java
+          |--TbFolder.java
+          |--TbShare.java
+          |--TbSystemFile.java
+          |--TbUserFile.java
+          |--TbUserStatus.java
+          |--User.java
+        +service/
+          +impl/
+            |--TbFolderServiceImpl.java
+            |--TbShareServiceImpl.java
+            |--TbSystemFileServiceImpl.java
+            |--TbUserFileServiceImpl.java
+            |--TbUserStatusServiceImpl.java
+            |--UserServiceImpl.java
+          |--TbFolderService.java
+          |--TbShareService.java
+          |--TbSystemFileService.java
+          |--TbUserFileService.java
+          |--TbUserStatusService.java
+          |--UserService.java
+        +utils/
+          |--CorsConfig.java
+          |--SimpleCORSFilter.java
+    +resources/
+      |--db.properties
+      |--log4j.properties
+      +mapper/
+        |--TbFolderMapper.xml
+        |--TbShareMapper.xml
+        |--TbSystemFileMapper.xml
+        |--TbUserFileMapper.xml
+        |--TbUserStatusMapper.xml
+        |--UserMapper.xml
+      |--mybatis-config.xml
+      |--spring-mvc.xml
+      |--spring.xml
+      +upload/
+    +webapp/
+      +WEB-INF/
+        |--web.xml
+  +test/
+    +java/
+
+```

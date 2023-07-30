@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TbSystemFileMapper">
+
+    <resultMap id="BaseResultMap" type="com.pojo.TbSystemFile">
+            <id property="fileId" column="file_id" jdbcType="BIGINT"/>
+            <result property="fileName" column="file_name" jdbcType="VARCHAR"/>
+            <result property="fileUrl" column="file_url" jdbcType="VARCHAR"/>
+            <result property="belongUser" column="belong_user" jdbcType="BIGINT"/>
+            <result property="fileType" column="file_type" jdbcType="CHAR"/>
+            <result property="fileSize" column="file_size" jdbcType="DECIMAL"/>
+            <result property="uploadTime" column="upload_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+
+    <insert id="insertSystemFile">
+        insert into tb_system_file values(null,#{fileName},#{fileUrl},#{belongUser},#{fileType},#{fileSize},#{uploadTime})
+    </insert>
+</mapper>
